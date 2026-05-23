@@ -1,12 +1,12 @@
 # SSB
 
-EXP NO: 3	SSB-SC-AM MODULATION using SCILAB
+## EXP NO: 3	SSB-SC-AM MODULATION using SCILAB
 
-AIM:
+### AIM:
 
 To write a program to perform SSBSC modulation and demodulation using SCI LAB and study its spectral characteristics
 
-EQUIPMENTS REQUIRED
+### EQUIPMENTS REQUIRED
 
 •	Computer with i3 Processor
 
@@ -15,7 +15,7 @@ EQUIPMENTS REQUIRED
 Note: Keep all the switch faults in off position
 
 
-Algorithm
+### Algorithm
 1.	Define Parameters:
 •	Fs: Sampling frequency.
 •	T: Duration of the signal.
@@ -35,7 +35,7 @@ Algorithm
 •	Plot the message signal, carrier signal, SSBSC modulated signal, and the recovered signal after demodulation.
 
 
-PROCEDURE
+### PROCEDURE
 
 •	Refer Algorithms and write code for the experiment.
 •	Open SCILAB in System
@@ -46,26 +46,54 @@ PROCEDURE
 •	If any Error, correct it in code and execute again
 •	Verify the generated waveform using Tabulation and Model Waveform
 
-Model Waveform
+### Model Waveform
 
 <img width="704" height="178" alt="image" src="https://github.com/user-attachments/assets/32ee29b3-0d95-4192-9762-972d50c05c90" />
 <img width="706" height="167" alt="image" src="https://github.com/user-attachments/assets/bff0d8fd-d679-444e-af37-0b34585853c1" />
 
-Program
+### Program
+```
+Am=8.7;
+Ac=13.05;
+fm=1453;
+fc=14530;
+fs=145300;
+t=0:1/fs:2/fm;
+em1 = Am*cos(2*3.14*fm*t);
+subplot(4,1,1);
+plot(t,em1)
+ec1 = Ac*cos(2*3.14*fc*t);
+subplot(4,1,2);
+plot(t,ec1)
+em2 = Am*sin(2*3.14*fm*t);
+ec2 = Ac*sin(2*3.14*fc*t);
+eDSBSC1= em1.*ec1;
+eDSBSC2 = em2.*ec2;
+eLSB = eDSBSC1+eDSBSC2;
+subplot(4,1,3);
+plot(t,eLSB)
+eUSB = eDSBSC1-eDSBSC2;
+subplot(4,1,4);
+plot(t,eUSB)
+```
 
-OUTPUT WAVEFORM
-
-TABULATION
-
+### OUTPUT WAVEFORM
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/46988aa6-7fc2-49b0-aafa-6887a6c53a76" />
 
 
 
+### TABULATION
+
+
+<img width="1600" height="952" alt="image" src="https://github.com/user-attachments/assets/7acd2d36-e07f-4c2e-9dde-c9eba6adcc42" />
 
 
 
 
 
-RESULT:
+
+
+### RESULT:
 
 Thus, the SSB-SC-AM Modulation and Demodulation is experimentally done and the output is verified.
 
